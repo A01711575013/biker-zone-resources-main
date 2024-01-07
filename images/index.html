@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike World</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- Google Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+    <!-- font awasome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+
+            .font-manrope {
+                font-family: 'Manrope', sans-serif;
+            }
+        </style>
+</head>
+
+<body class="w-9/12 bg-stone-100 mx-auto">
+    <header>
+        <nav class="bg-gray-800">
+            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                <div class="relative flex h-16 items-center justify-between">
+
+                    <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                        <div class="flex flex-shrink-0 items-center">
+                            <img class="h-8 w-auto"
+                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                alt="Your Company">
+                        </div>
+                        <div class="hidden sm:ml-6 sm:block">
+                            <div class="flex space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    aria-current="page">Dashboard</a>
+                                <a href="#"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
+                                <a href="#"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                                <a href="#"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <button type="button"
+                            class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <span class="absolute -inset-1.5"></span>
+                            <span class="sr-only">View notifications</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                            </svg>
+                        </button>
+
+                        <!-- Profile dropdown -->
+                        <div class="relative ml-3">
+                            <div>
+                                <button type="button"
+                                    class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                    id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                    <span class="absolute -inset-1.5"></span>
+                                    <span class="sr-only">Open user menu</span>
+                                    <img class="h-8 w-8 rounded-full"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                        alt="">
+                                </button>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="sm:hidden" id="mobile-menu">
+                <div class="space-y-1 px-2 pb-3 pt-2">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                        aria-current="page">Dashboard</a>
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Carousel part Slide section -->
+        <div class="carousel w-full my-4 ">
+            <!-- 1st Bike Slide -->
+            <div id="bike1" class="carousel-item bg-[#E76F511A] relative w-full">
+                <div class="flex flex-col md:flex-row">
+                    <div class="p-8">
+                        <h1 class="text-4xl font-bold mb-2">Ride-on R15 V4 <br> with Smile</h1>
+                        <p>Amet minim mollit non deserunt ullamco <br>
+                            est sit aliqua dolor do amet sint. Velit officia <br> consequat duis enim velit mollit.</p>
+                        <button class=" mt-4 btn  bg-[#E76F51;]">Purchase</button>
+                    </div>
+                    <div class="md:ml-6">
+                        <img src="slider/bike1.png" class="w-full" />
+                    </div>
+                </div>
+
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#bike4" class="btn btn-circle">❮</a>
+                    <a href="#bike2" class="btn btn-circle">❯</a>
+                </div>
+            </div>
+
+            <!-- 2nd Bike slide -->
+            <div id="bike2" class="carousel-item relative w-full">
+                <div class="flex flex-col md:flex-row">
+                    <div class="p-8">
+                        <h1 class="text-4xl font-bold mb-2">Ride-on R15 V4 <br> with Smile</h1>
+                        <p>Amet minim mollit non deserunt ullamco <br>
+                            est sit aliqua dolor do amet sint. Velit officia <br> consequat duis enim velit mollit.</p>
+                        <button class=" mt-4 btn  bg-[#E76F51;]">Purchase</button>
+                    </div>
+                    <div class="md:ml-6">
+                        <img src="slider/bike2.png" class="w-full" />
+                    </div>
+                </div>
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#bike1" class="btn btn-circle">❮</a>
+                    <a href="#bike3" class="btn btn-circle">❯</a>
+                </div>
+            </div>
+
+            <!-- 3rd Slide  -->
+
+            <div id="bike3" class="carousel-item relative w-full">
+                <div class="flex flex-col md:flex-row">
+                    <div class="p-8">
+                        <h1 class="text-4xl font-bold mb-2">Ride-on R15 V4 <br> with Smile</h1>
+                        <p>Amet minim mollit non deserunt ullamco <br>
+                            est sit aliqua dolor do amet sint. Velit officia <br> consequat duis enim velit mollit.</p>
+                        <button class=" mt-4 btn  bg-[#E76F51;]">Purchase</button>
+                    </div>
+                    <div class="md:ml-6">
+                        <img src="slider/bike3.png" class="w-full" />
+                    </div>
+                </div>
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#bike2" class="btn btn-circle">❮</a>
+                    <a href="#bike4" class="btn btn-circle">❯</a>
+                </div>
+            </div>
+
+            <!-- 4th Slide -->
+
+
+            <div id="bike4" class="carousel-item relative w-full">
+                <div class="flex flex-col md:flex-row">
+                    <div class="p-8">
+                        <h1 class="text-4xl font-bold mb-2">Ride-on R15 V4 <br> with Smile</h1>
+                        <p>Amet minim mollit non deserunt ullamco <br>
+                            est sit aliqua dolor do amet sint. Velit officia <br> consequat duis enim velit mollit.</p>
+                        <button class=" mt-4 btn  bg-[#E76F51;]">Purchase</button>
+                    </div>
+                    <div class="md:ml-6">
+                        <img src="slider/bike4.png" class="w-full" />
+                    </div>
+                </div>
+                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#bike3" class="btn btn-circle">❮</a>
+                    <a href="#bike1" class="btn btn-circle">❯</a>
+                </div>
+            </div>
+        </div>
+        <!-- Feature Bike Sectrion -->
+        <div>
+            <div>
+                <h1 class="text-3xl font-bold text-center mt-8">Fetured Bikes In This Year </h1>
+                <h5 class="text-center font-bold underline cursor-pointer mb-6 text-xs text-[#E76F51;] ">Best bike
+                    collection</h5>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8 md:gap-2 md:mx-2 mb-6">
+                <div>
+                    <img src="MT/MT 15.jfif" alt="">
+                </div>
+                <div>
+                    <img src="MT/MT 15 Black.jfif" alt="">
+                </div>
+                <div>
+                    <img src="MT/MT 15 Blue.jfif" alt="">
+                </div>
+                <div>
+                    <img src="MT/MT 15 V3.jfif" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Latest News  -->
+        <div>
+            <div class="my-10">
+                <h1 class="text-3xl font-bold text-center m-6 ">latest News</h1>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 p-8">
+                <div class="border-2">
+                    <div>
+                        <img src="others/latest1.png" alt="">
+                    </div>
+                    <div class="p-4">
+                        <h1 class="text-xl font-bold ">Ducati XDIAVEL S-73</h1>
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus, fermentum amet
+                            faucibus sed id nisi lectus at.
+                        </p>
+                        <button class=" mt-4 btn  bg-[#E76F51;]">Read More</button>
+                    </div>
+                </div>
+
+                <div class="border-2">
+                    <img src="others/latest2.png" alt="">
+                    <div class="p-4">
+                        <h1 class="text-xl font-bold ">Motorcycles & Scooters</h1>
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus, fermentum amet faucibus sed id nisi lectus at.
+                        </p>
+                        <button class=" mt-4 btn  bg-[#E76F51;]">Read More</button>
+                    </div>
+                </div>
+
+                <div class="border-2">
+                    <img src="others/latest3.png" alt="">
+                    <div class="p-4">
+                        <h1 class="text-xl font-bold ">2021 Honda CBR500R</h1>
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus, fermentum amet faucibus sed id nisi lectus at.
+                        </p>
+                        <button class=" mt-4 btn  bg-[#E76F51;]">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Happy Clients says -->
+        <div>
+            <div>
+                <h1 class="text-3xl font-bold text-center mt-8">Happy <span class="text-orange-500">Clients says</span></h1>
+            </div>
+            <div class="flex flex-col md:flex-row md:p-14 gap-4">
+                <!-- 1st Part -->
+                <div class="border-2">
+                    <div>
+                        <img src="others/user-1.png" alt="">
+                    </div>
+                    <div class="text-center">
+                        <p>Slate helps you see how
+                            many more <br> days you need
+                            to work to reach your <br> financial
+                            goal for the month and year.</p>
+                        <div>
+                            <i class="fa-solid fa-star text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-yellow-500"></i>
+                            <i class="fa-solid fa-star text-yellow-500"></i>
+                            <i class="fa-regular fa-star text-yellow-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-blue-600 p-1">Regina Miles</h4>
+                        </div>
+                        <div>
+                            <h4>Police Man</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2nd Part -->
+                <div>
+                    <div class="border-2">
+                        <div>
+                            <img src="others/user-2.png" alt="">
+                        </div>
+                        <div class="text-center">
+                            <p>Slate helps you see how
+                                many more <br> days you need
+                                to work to reach your <br> financial
+                                goal for the month and year.</p>
+                            <div>
+                                <i class="fa-solid fa-star text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-yellow-500"></i>
+                                <i class="fa-regular fa-star text-yellow-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-blue-600 p-1">Regina Miles</h4>
+                            </div>
+                            <div>
+                                <h4>Nourse</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3rd Part -->
+                <div>
+                    <div class="border-2">
+                        <div>
+                            <img src="others/user-3.png" alt="">
+                        </div>
+                        <div class="text-center">
+                            <p>Slate helps you see how
+                                many more <br> days you need
+                                to work to reach your <br> financial
+                                goal for the month and year.</p>
+                            <div>
+                                <i class="fa-solid fa-star text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-yellow-500"></i>
+                                <i class="fa-solid fa-star text-yellow-500"></i>
+                                <i class="fa-regular fa-star text-yellow-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-blue-600 p-1">Regina Miles</h4>
+                            </div>
+                            <div>
+                                <h4>Banker</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Frequently Asked Questions -->
+        <DIV>
+            <div class="text-3xl font-bold text-center ">
+                <h1>Frequently Asked <span class="text-orange-600">Questions</span></h1>
+            </div>
+            <div class="flex flex-col md:flex-row md:p-20 gap-6">
+                <div>
+                    <img src="others/faq.png" alt="">
+                </div>
+
+                <div>
+                    <div class="collapse collapse-plus bg-base-200">
+                        <input type="radio" name="my-accordion-3" checked="checked" /> 
+                        <div class="collapse-title text-xl font-medium">
+                            What are the most important things I should
+                            know about riding a bike?
+                        </div>
+                        <div class="collapse-content"> 
+                          <p>Safety First! Always obey the rules of the road. Obey all traffic <br>signals, signs, and laws. Get in the mindset of “driving” your <br> bike—not just “riding” your bike. This will help you <br> be a more focused and legally compliant bike rider. </p>
+                        </div>
+                      </div>
+                      <div class="collapse collapse-plus bg-base-200">
+                        <input type="radio" name="my-accordion-3" /> 
+                        <div class="collapse-title text-xl font-medium">
+                            How can I tell if my helmet is old and I need a 
+                            new one?
+                        </div>
+                        <div class="collapse-content"> 
+                          <p>hello</p>
+                        </div>
+                      </div>
+                      <div class="collapse collapse-plus bg-base-200">
+                        <input type="radio" name="my-accordion-3" /> 
+                        <div class="collapse-title text-xl font-medium">
+                            My bike has been in storage is it safe to ride?
+                        </div>
+                        <div class="collapse-content"> 
+                          <p>hello</p>
+                        </div>
+                      </div>
+                      <div class="collapse collapse-plus bg-base-200">
+                        <input type="radio" name="my-accordion-3" /> 
+                        <div class="collapse-title text-xl font-medium">
+                            What rules should I follow when riding my bike?
+                        </div>
+                        <div class="collapse-content"> 
+                          <p>hello</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </DIV>
+    </main>
+    <footer>
+        <div  class="flex flex-col md:flex-row justify-between md:p-20 bg-black text-white font-manrope ">
+            <div >
+                <div>
+                    <ul class="flex gap-4 p-1">
+                        <li>DownloadNow</li>
+                        <li>Licence</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="flex md:gap-4 p-1">
+                        <li>About</li>
+                        <li>Features</li>
+                        <li>Pricing</li>
+                        <li>Careers</li>
+                        <li>Help</li>
+                        <li> PrivacyPolicy</li>
+                    </ul>
+                </div>
+                <div class="p-1">
+                    <p>@2024 bike.All rights reserved</p>
+                </div>
+                
+            </div>
+            <div class="">
+                <div class="">
+                    <h1>Get The Help</h1>
+                </div>
+                <div class="w-24">
+                    <img class="my-2 cursor-pointer" src="others/android.png" alt="">
+                    <img src="others/ios.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
